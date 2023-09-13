@@ -3,9 +3,9 @@ import styled from "styled-components";
 import {useRecoilState} from "recoil";
 import {count369State} from "../../atoms/index.js";
 
-export default function Counter369() {
+export default function Counter369({name}) {
   
-  const [count, setCount] = useRecoilState(count369State)
+  const [count, setCount] = useRecoilState(count369State);
   
   const add1 = () => {
     setCount(count + 1);
@@ -32,6 +32,8 @@ export default function Counter369() {
   
   const WrapperButton = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
   `;
   
   const Button = styled.div`
@@ -39,12 +41,21 @@ export default function Counter369() {
     height: 4rem;
   `;
   
+  const Wrapper = styled.div`
+    border: 2px solid aqua;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+  `;
+  
   
   return (
-    <div>
-      <Typo>
-        {count}
-      </Typo>
+    <Wrapper>
+      {/*<Typo>*/}
+      {/*  {count}*/}
+      {/*</Typo>*/}
+      <h3>{name}</h3>
       <WrapperButton>
         <Button>
           <button onClick={add1}>+1</button>
@@ -54,6 +65,6 @@ export default function Counter369() {
           <button onClick={add3}>+3</button>
         </Button>
       </WrapperButton>
-    </div>
+    </Wrapper>
   );
 }
