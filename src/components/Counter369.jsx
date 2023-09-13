@@ -1,9 +1,12 @@
 import {useEffect, useState} from "react";
 import styled from "styled-components";
+import {useRecoilState} from "recoil";
+import {count369State} from "../../atoms/index.js";
 
 export default function Counter369() {
   
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useRecoilState(count369State)
+  
   const add1 = () => {
     setCount(count + 1);
   };
